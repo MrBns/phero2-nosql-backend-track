@@ -1,0 +1,16 @@
+{
+  "name": "module_2__explore-advance-types",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsd": "ts-node-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  }
+}
