@@ -12,6 +12,7 @@ export function env(key: string): string | undefined {
 const config = {
 	PORT: process.env.PORT || 8080,
 	DB_URL: process.env.DB_URL as string,
+	BCRYPT_SALT: process.env.BCRYPT_SALT as string,
 };
 
 export default config;

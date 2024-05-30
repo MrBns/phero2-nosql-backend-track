@@ -1,3 +1,5 @@
+import { Model } from "mongoose";
+
 export interface IGuardian {
 	fatherName: string;
 	fatherOccupation: string;
@@ -21,18 +23,31 @@ export interface ILocalGuardian {
 }
 
 export interface IStudent {
-	_id: string;
+	id: number;
 	name: IUserName;
+	password: string;
 	gender: "male" | "female";
 	dateOfBirth: string;
 	email: string;
 	contactNo: string;
 	emergencyContactNo: string;
-	bloodGroup: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
+	bloodGroup?: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
 	presentAddress: string;
 	permanentAddress: string;
 	guardian: IGuardian;
 	localGuardian: ILocalGuardian;
 	profileImg?: string;
-	isActive: "active" | "blocked";
+	isActive?: "active" | "blocked";
+	isDeleted: boolean;
+}
+
+// Methods
+
+export interface IStudentMethods {
+	isUserExist(id: number): Promise<IStudent | null>;
+}
+
+//Model
+export interface IStudentModel extends Model<IStudent, Record<string, never>, IStudentMethods> {
+	isUserExists(id: number): Promise<IStudent | null>;
 }
